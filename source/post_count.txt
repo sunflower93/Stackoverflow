@@ -1,0 +1,9 @@
+sum:32209817
+questions:12350818
+answers:19776864
+type3:167
+type4:40849
+type5:40848
+type6:265
+type7:4
+type8:2
