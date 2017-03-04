@@ -1,4 +1,11 @@
+package preprocess_package;
+
+import tools.Tools;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by ShaoBin on 2016/10/8.
  */
@@ -111,7 +118,7 @@ public class Preprocess {
         }
     }
 
-    public static void main(String[] args) {
+    public static void number_count() {
         try {
             File posts_file = new File("L:/Stackoverflow/stackoverflow.com-Posts/Posts.xml");
             BufferedReader posts_reader = new BufferedReader(new FileReader(posts_file));
@@ -148,6 +155,48 @@ public class Preprocess {
             writer.write("sum:" + sum + "questions:" + sum1 + "\nanswers:" + sum2 + "\ntype3:" + sum3 + "\ntype4:" + sum4 + "\ntype5:" + sum5 + "\ntype6:" + sum6 + "\ntype7:" + sum7 + "\ntype8:" + sum8);
             posts_reader.close();
             writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String [] getFileName(String path)
+    {
+        File file = new File(path);
+        String [] fileName = file.list();
+        return fileName;
+    }
+    public static void getAllFileName(String path,ArrayList<String> fileName)
+    {
+        File file = new File(path);
+        File [] files = file.listFiles();
+        String [] names = file.list();
+        if(names != null)
+            fileName.addAll(Arrays.asList(names));
+        for(File a:files)
+        {
+            if(a.isDirectory())
+            {
+                getAllFileName(a.getAbsolutePath(),fileName);
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        try {
+            File output = new File("L:\\Stackoverflow\\stackoverflow.com-PostHistory\\example.xml");
+            Tools.file_init(output);
+            BufferedReader reader = new BufferedReader(new FileReader("L:\\Stackoverflow\\stackoverflow.com-PostHistory\\PostHistory.xml"));
+
+            String tempString = null;
+            FileWriter fw = new FileWriter(output, true);
+            for (int i = 0; i < 1000; i++) {
+                tempString = reader.readLine();
+                fw.write(tempString + "\n");
+            }
+            fw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
