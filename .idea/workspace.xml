@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="20af4a8c-5b93-4d93-a4da-0a00000126a3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mydatabase/InsertToDB.java" afterPath="$PROJECT_DIR$/src/mydatabase/InsertToDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Tools.java" afterPath="$PROJECT_DIR$/src/tools/Tools.java" />
     </list>
     <ignored path="Stackoverflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -952,7 +950,7 @@
       <workItem from="1488433511578" duration="16033000" />
       <workItem from="1488552234871" duration="7165000" />
       <workItem from="1488774278504" duration="6291000" />
-      <workItem from="1488901507744" duration="16000" />
+      <workItem from="1488901507744" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="Fighting!!!!">
       <created>1488641138293</created>
@@ -961,11 +959,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488641138293</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fighting!!!!">
+      <created>1488901538728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1488901538728</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165109000" />
+    <option name="totallyTimeSpent" value="165125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1315,6 +1320,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="699">
           <caret line="34" column="9" selection-start-line="15" selection-start-column="21" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="method#Get#0;class#GetTag#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1329,6 +1337,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
