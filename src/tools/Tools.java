@@ -61,6 +61,13 @@ public class Tools {
 		else return s;
 	}
 
+	public static boolean ToBoolean(String s) {
+		if (s.charAt(0) == 'f') {
+			return false;
+		}
+		else return true;
+	}
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(new File("L:\\Stackoverflow\\stackoverflow.com-Posts\\questions.xml")));
 		File []files = new File[100];

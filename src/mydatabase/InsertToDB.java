@@ -18,7 +18,7 @@ public class InsertToDB {
 
     public static void main(String[] args) {
         try {
-            questionsDB();
+            badgesDB();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -516,6 +516,85 @@ public class InsertToDB {
             } catch (Exception e) {
                 String line0 = (i + ":");
                 e.printStackTrace();
+                BadDateCount++;
+                System.out.println(line0);
+                System.out.println(line);
+            }
+        }
+        if(i % batchSize != 0){
+            pstmt.executeBatch();
+            conn.commit();
+        }
+        String line0 = ("共"+BadDateCount+"个坏数据\r\n");
+        String line1 = ("共" + i + "条数据");
+        System.out.println(line0+"                 "+line1);
+        System.out.println("done!!!!!!!!!!!!!!!!");
+    }
+
+    public static void badgesDB() throws Exception {
+        long num = 0;
+        int batchSize = 10000;
+        //建立数据库连接
+        conn = new MyDatabaseConnection().getConnection();
+        conn.setAutoCommit(false);
+
+        FileInputStream inputStream = null;
+        Scanner sc = null;
+        int i = 1,j = 0;
+        PreparedStatement pstmt = null;
+        String sql = "insert into badges values (?,?,?,?,?,?)";
+        pstmt = conn.prepareStatement(sql);
+        //用来统计和保存错误数据
+        int BadDateCount = 0;
+
+        //读入文件
+        inputStream = new FileInputStream("L:\\Stackoverflow\\stackoverflow.com-Badges\\Badges.xml");
+        sc = new Scanner(inputStream, "UTF-8");
+
+        i = 1;
+        while (sc.hasNextLine()) {
+            //将一行数据存入swap.txt
+            String line = sc.nextLine();
+            try {
+                PrintWriter output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream("L:\\Stackoverflow\\stackoverflow.com-Badges\\swap" + num + ".txt"),"UTF-8")));
+                output.write(line);
+                output.flush();
+                output.close();
+            } catch (FileNotFoundException e) {
+                num++;
+                PrintWriter output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream("L:\\Stackoverflow\\stackoverflow.com-Badges\\swap" + num + ".txt"),"UTF-8")));
+                output.write(line);
+                output.flush();
+                output.close();
+            }
+
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+
+            try {
+                // 解析文件，生成document对象
+                Document document = builder.parse("L:\\Stackoverflow\\stackoverflow.com-Badges\\swap" + num + ".txt");
+                // 生成XPath对象
+                XPath xpath = XPathFactory.newInstance().newXPath();
+                Badge badge = GetBadge.Get(xpath, document);
+                try {
+                    i++;
+                    pstmt.setInt(1, badge.getId());
+                    pstmt.setInt(2, badge.getUserId());
+                    pstmt.setString(3, badge.getName());
+                    pstmt.setString(4, badge.getDate());
+                    pstmt.setInt(5, badge.getClasstype());
+                    pstmt.setBoolean(6, badge.getTagBased());
+                    pstmt.addBatch();
+                    if( i% batchSize == 0){
+                        pstmt.executeBatch();
+                        conn.commit();
+                    }
+                } catch (Exception e) {
+                    System.out.println(line);
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                String line0 = (i + ":");
                 BadDateCount++;
                 System.out.println(line0);
                 System.out.println(line);
