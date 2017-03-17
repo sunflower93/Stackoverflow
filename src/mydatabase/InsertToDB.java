@@ -542,7 +542,7 @@ public class InsertToDB {
         Scanner sc = null;
         int i = 1,j = 0;
         PreparedStatement pstmt = null;
-        String sql = "insert into badges values (?,?,?,?,?,?)";
+        String sql = "insert into badges values (?,?,?,?,?,?);";
         pstmt = conn.prepareStatement(sql);
         //用来统计和保存错误数据
         int BadDateCount = 0;
