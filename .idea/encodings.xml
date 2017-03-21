@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/mydatabase/BadData.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/GetPost.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/GetTag.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/GetTagInformation.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/InsertToDB.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/InsertToDB_Comments.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mydatabase/InsertToDB_Users.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/preprocess_package/Analysis.java" charset="GBK" />
+  </component>
+</project>
